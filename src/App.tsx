@@ -1,19 +1,25 @@
 import './App.css'
 import UsersForm from './components/UserForm/UserForm'
 import User from './components/User/User'
+import {useState} from 'react';
+import {UserType} from '../types';
 
 const App = () => {
+  const [users] = useState<UserType[]>([
+    {id: '1', name: 'Ramil', email: 'ramil@gmail.com', activity: false, role: 'Admin'},
+    {id: '2', name: 'Albina', email: 'albina@gmail.com', activity: true, role: 'Editor'},
+    {id: '3', name: 'Valentina', email: 'valentina@gmail.com', activity: false, role: 'User'}
+  ])
+
   return (
     <>
       <div className="container text-center mt-5">
         <div className="row justify-content-between">
           <div className="col-5 bg-body-tertiary rounded">
-            <h3>Create user</h3>
             <UsersForm/>
           </div>
           <div className="col-5 bg-body-tertiary rounded">
-            <h3>Users</h3>
-            <User/>
+            <User users={users}/>
           </div>
         </div>
       </div>
