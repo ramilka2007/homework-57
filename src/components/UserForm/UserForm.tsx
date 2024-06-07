@@ -39,12 +39,11 @@ const UserForm: React.FC<UserFormProps> = ({onSubmit}) => {
   };
 
   const changeChecked = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setNewUser((prev) => ({
-      ...prev,
-      activity: event.target.checked,
-    }));
+      setNewUser((prev) => ({
+        ...prev,
+        activity: event.target.checked,
+      }));
   };
-
   return (
     <form onSubmit={onFormSubmit}>
       <h3 className="mt-4 mb-3">Add user</h3>
@@ -83,6 +82,7 @@ const UserForm: React.FC<UserFormProps> = ({onSubmit}) => {
               name="online"
               id="online"
               onChange={changeChecked}
+              checked={newUser.activity}
               aria-label="..."/>
           </div>
         </div>
